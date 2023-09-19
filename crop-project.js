@@ -23,12 +23,17 @@ const crops = {
   // ################################################################################################
   // USER ACCOUNT
   // ################################################################################################
-  userAccount: function (userName, manure_purchased, accountSummary) {
-    const datas = {
-      userName,
-      manure_purchased,
-      accountSummary,
-    };
+  userAccount: function (userName, password, manure_purchased, accountSummary) {
+    console.log(this.user);
+    // if(userName === this.user){
+
+    // }
+    // const datas = {
+
+    //   userName,
+    //   manure_purchased,
+    //   accountSummary,
+    // };
   },
 
   // ################################################################################################
@@ -47,7 +52,7 @@ const crops = {
     harvesting = "coming soon...",
     post_harvesting = "coming soon..."
   ) {
-    // data to push in the crop info array
+    // Data to push in the crop info array
     const datas = {
       name,
       category,
@@ -143,7 +148,7 @@ console.log(crops.createUser("morgan", "qwerfds98443234"));
 // #########
 // 6. user account
 // #########
-// console.log(crops.userAccount("adam", "12345678"));
+console.log(crops.userAccount("adam", "12345678"));
 
 // #########
 // purchase
