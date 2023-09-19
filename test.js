@@ -1,5 +1,5 @@
 const crops = {
-  users: [],
+  user: [],
   cropInfo: [],
   // ################################################################################################
   // CREATE USER ACCOUNT
@@ -9,42 +9,22 @@ const crops = {
       userName,
       password,
     };
-    let checkingPassword = "";
     // password verification
     if (datas.password.length < 8) {
-      checkingPassword = `New password is weak, use strong password that have more 8 character.`;
+      console.log(
+        `New password is weak, use strong password that have more 8 character.`
+      );
     } else {
-      // console.log(`😊 You have successfully create account ${datas.userName}.`);
-      checkingPassword = `😊 You have successfully create account ${datas.userName}.`;
+      console.log(`😊 You have successfully create account ${datas.userName}.`);
     }
-    console.log(checkingPassword);
-    return this.users.push(datas);
+
+    return this.user.push(datas);
   },
   // ################################################################################################
   // USER ACCOUNT
   // ################################################################################################
-  userAccountInfo: function (
-    userName,
-    password,
-    manure_purchased,
-    accountSummary
-  ) {
-    // Login
-    let account = "";
-    function login() {
-      this.users.forEach((userData) => {
-        if (userData.userName === userName && userData.password === password) {
-          account = `Welcome back ${userData.userName} 😊`;
-        } else {
-          account = "password incorrect";
-        }
-      });
-      return account;
-    }
-    login();
-
-    // display user account
-    // this.users.push({ summary: `you purchase ${250} kg of N.P.K` });
+  userAccount: function (userName, password, manure_purchased, accountSummary) {
+    console.log(this.user[0]);
   },
 
   // ################################################################################################
@@ -105,7 +85,6 @@ const crops = {
   // SEARCHING
   // ################################################################################################
   searching: function (cropArray, cropName) {
-    // console.log(cropName);
     const index = cropArray.findIndex((data) => {
       return data.name.toLowerCase() === cropName.toLowerCase();
     });
@@ -150,20 +129,15 @@ crops.addCropInfoData("maize");
 // #########
 // 5. create account
 // #########
-// crops.createUser("adam", "12345678");
-// crops.createUser("morgan", "qwerfds98443234");
-
-// console.log(crops.createUser("adam", "12345678"));
-// console.log(crops.createUser("morgan", "qwerfds98443234"));
+console.log(crops.createUser("adam", "12345678"));
+console.log(crops.createUser("morgan", "qwerfds98443234"));
 
 // #########
 // 6. user account
 // #########
-// console.log(crops.userAccount("adam", "12345678"));
-// console.log(crops.userAccountInfo("adam", "12345678"));
+console.log(crops.userAccount("adam", "12345678"));
 
 // #########
 // purchase
 // #########
-
-console.log(crops);
+// console.log(crops);
