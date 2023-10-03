@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #e5edf3;
+}
+h1,
+h2 {
+  margin-top: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.part-1,
+.part-2 {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: aliceblue;
+}
+
+.crop-container {
+  display: block;
+  padding: 1rem;
+  margin: 2rem;
+}
+
+.crop-form {
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+}
+input {
+  text-align: center;
+  padding: 4px;
+}
+.crop-card {
+  background-color: whitesmoke;
+  border: 1px solid black;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 11px;
+}
+
+.crop-card > * {
+  margin-top: 1rem;
+}
+.crop-img {
+  max-width: 100%;
+  border-radius: 11px;
+  width: 15rem;
+  height: 10rem;
+  object-fit: cover;
+}
+.searching-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.part-3 {
+  border-left: 5px solid black;
+}
+.delete-btn {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  padding: 7px 15px;
+  border-radius: 14px;
+}
+@media (max-width: 820px) {
+  .part-1,
+  .part-2 {
+    grid-template-columns: 1fr;
+  }
+  .part-3 {
+    border: none;
+  }
+}

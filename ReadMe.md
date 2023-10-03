@@ -10,7 +10,7 @@ This project have these type of crops:
 
 What the user can do with this app:
 
-1. To see overview of crop like table of content.
+<!-- 1. To see overview of crop like table of content. -->
 
 2. Each crop must have summary (name,summary).
 

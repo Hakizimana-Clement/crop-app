@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAdZVcA9fn5ABFqUgAFTTkAGXNaABBhSwD5/PoAGnhdAAZLNwAXYE4AhZHyABAezwAZc1sA/P79AC16aABFX90AU5eJAC2JcAD9/v4A/v7+ANrq9gD0+PcAipfjACFxWgAjfWoAERnXABllUwATZ1YAEWpWABNmWQARYEkAHnhgABkc8AAVZlEAC1tHAB53WwAaaVEAJoFoAEKXhAAZdWEAGm9ZABleTwB0hssAHnhhABRzXwAUcFcAHnthACBxXAAggWkAGiW/APv9/AAceV8AISnuABkY3ABKdm4ADkg8AEx2bgAiLvkA////APn7+gAedF0AFlxGACV9bQBDf5gAJGlbAPz9/QAodmgA/f39AClBswD+/f0AFWpZACFxZgDN4N0ADWxUAPH39gD6+/sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOjo6Ojo6OjpDOjo6Ojo6Ojo6Ojo6Ojo6Bjo6Ojo6Ojo6Ojo6Ojo6OhQ6Ojo6Ojo6Ojo6Ojo6OhYPKjo6Ojo6Ojo6Ojo6OgogNRkxOjo6Ojo6Ojo6OjoTOTQLRDo6Ojo6Ojo6Ojo6Ojo/Ezo6Ojo6Ojo6Ojo6OjpDR0M6Ojo6Ojo6Ojo6OjpDNkZDOjo6Ojo6Ojo6OhVDIRJBHUgNOjo6Ojo6OiQ4PRg6OhMHIi0+LEo6OjpLKAQTOjoOGyMMPEkAMicaCCUROjo6OjoQHwIcCUNANx4zLjBFOjo6OjoBOzovKRMDBRcrOjo6Ojo6Ojo6JkI6Ojo6Ojo6Ojo6Ojo6OgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      rel="icon"
+      type="image/x-icon"
+    />
+    <title>Crop App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>crop app</h1>
+    <section class="part-1">
+      <div class="part-1-all-crop">
+        <h2>All crops</h2>
+        <div class="searching-container">
+          <input type="text" placeholder="Search crop" class="searching-crop" />
+        </div>
+        <div class="crop-container"></div>
+      </div>
+      <!-- submit form section -->
+      <div class="part-3">
+        <h2>Add new crop</h2>
+        <form class="crop-form">
+          <label for="crop-name">Crop name:</label>
+          <br />
+          <br />
+          <input type="text" id="crop-name" name="cropName" />
+          <br />
+          <br />
+          <label for="categoreis-by">Categoreis:</label>
+          <br />
+          <br />
+          <input type="text" id="crop-name" name="cropCategories" />
+          <!-- <select id="categoreis-by">
+            <option value="">---select---</option>
+            <option value="legumes">Legumes</option>
+            <option value="roots">Root and tubers</option>
+            <option value="veget">Vegetables</option>
+          </select> -->
+
+          <!-- background -->
+          <br />
+          <br />
+          <br />
+          <label for="crop-image">Upload crop image by URL:</label>
+          <br />
+          <br />
+          <input
+            type="url"
+            placeholder="ex:www.crop.com"
+            pattern="https://.*"
+            name="cropImg"
+          />
+          <br />
+          <br />
+          <br />
+          <label for="background">Background:</label>
+          <br />
+          <br />
+          <textarea
+            name="background"
+            id="background"
+            cols="33"
+            rows="4"
+          ></textarea>
+
+          <br />
+          <br />
+          <!-- usability -->
+          <label for="usability">Usability:</label>
+          <br />
+          <br />
+          <textarea
+            name="usability"
+            id="background"
+            cols="33"
+            rows="4"
+          ></textarea>
+
+          <br />
+          <br />
+          <!-- requirement -->
+          <label for="requirement">Requirement:</label>
+          <br />
+          <br />
+          <textarea
+            name="requirement"
+            id="requirement"
+            cols="33"
+            rows="4"
+          ></textarea>
+          <br />
+          <br />
+          <!-- seed bed preparation -->
+          <label for="seedBed">Seed bed preparation:</label>
+          <br />
+          <br />
+          <textarea
+            name="seedBed"
+            id="background"
+            cols="33"
+            rows="4"
+          ></textarea>
+          <br />
+          <br />
+          <label for="sowing">Sowing method:</label>
+          <br />
+          <br />
+          <textarea name="sowing" id="background" cols="33" rows="4"></textarea>
+          <br />
+          <br />
+          <label for="pestAndDisease">Pest and disease management:</label>
+          <br />
+          <br />
+          <textarea
+            name="pestAndDisease"
+            id="background"
+            cols="33"
+            rows="4"
+          ></textarea>
+          <br />
+          <br />
+          <label for="harvest">Harvesting:</label>
+          <br />
+          <br />
+          <textarea
+            name="harvest"
+            id="background"
+            cols="33"
+            rows="4"
+          ></textarea>
+          <br />
+          <br />
+          <label for="postHarvest">Post harvesting:</label>
+          <br />
+          <br />
+          <textarea
+            name="postHarvest"
+            id="background"
+            cols="33"
+            rows="4"
+          ></textarea>
+
+          <br />
+          <br />
+          <button>Submit</button>
+        </form>
+      </div>
+    </section>
+    <section class="part-2">
+      <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem,
+        exercitationem odit necessitatibus, sunt adipisci explicabo quia a autem
+        molestiae facilis aut esse nam nihil dolore rerum dignissimos doloremque
+        temporibus sequi!
+      </div>
+      <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem,
+        exercitationem odit necessitatibus, sunt adipisci explicabo quia a autem
+        molestiae facilis aut esse nam nihil dolore rerum dignissimos doloremque
+        temporibus sequi!
+      </div>
+    </section>
+    <!-- js -->
+    <script src="uuidv4.js"></script>
+    <script src="crop-functions.js"></script>
+    <script src="crop-app.js"></script>
+    <!-- <script src="crop-app-testing.js"></script> -->
+  </body>
+</html>

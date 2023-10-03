@@ -68,10 +68,23 @@ const crops = {
       unitPrice: unitPrice,
       total: qty * unitPrice,
     };
+
     this.users.forEach((data) => {
-      const trans = data.transaction;
-      trans.push(datas);
-      console.log(data);
+      if (data.id === user_id) {
+        const trans = data.transaction;
+        trans.push(datas);
+        console.log(data);
+      } else {
+        console.log("no found");
+      }
+      // if (user.id === user_id) {
+
+      //   const trans = data.transaction;
+      //   trans.push(datas);
+      //   console.log(data);
+      // } else {
+      //   console.log("No found");
+      // }
     });
   },
   // ################################################################################################
@@ -161,7 +174,7 @@ const crops = {
       return data.name.toLowerCase() === cropName.toLowerCase();
     });
     if (cropIndexToDelete === -1) {
-      throw "Crop not found";
+      throw Error("Crop not found");
     }
 
     cropArray.splice(cropIndexToDelete, 1);
@@ -234,17 +247,17 @@ crops.addCropInfoData(
 // #########|||||||||||||||||###########
 // 2. search
 // #########|||||||||||||||||###########
-// try {
-//   console.log(crops.searching(crops.cropInfo, "bean"));
-// } catch (error) {
-//   console.log("no found");
-// }
+try {
+  console.log(crops.searching(crops.cropInfo, "bean"));
+} catch (error) {
+  console.log("no found");
+}
 
 // #########|||||||||||||||||###########
 // 3. get summary
 // #########|||||||||||||||||###########
 // try {
-//   console.log(crops.getMeFullInfo(crops.cropInfo, "bean"));
+//   console.log(crops.getMeFullInfo(crops.cropInfo, "maize"));
 // } catch (error) {
 //   console.log({ error: "no found" });
 // }
@@ -252,13 +265,13 @@ crops.addCropInfoData(
 // #########|||||||||||||||||###########
 // 4. delete
 // #########|||||||||||||||||###########
-// try {
-//   crops.deleteCrop(crops.cropInfo, "");
-//   console.log(crops);
-// } catch (error) {
-//   console.error(error);
-// }
-
+try {
+  crops.deleteCrop(crops.cropInfo, "maie");
+  console.log(crops);
+} catch (error) {
+  console.error(error);
+}
+console.log();
 // #########|||||||||||||||||###########
 // 5. create account
 // #########|||||||||||||||||###########
@@ -299,7 +312,7 @@ try {
 // #########
 try {
   crops.userPurchase(1, "npk", 2, 500);
-  // crops.userPurchase(2, "agroTheive", 500, 29.992);
+  crops.userPurchase(2, "agroTheive", 500, 29.992);
 
   // crops.userPurchase(2, "npk", 2, 500);
 } catch (error) {
@@ -307,3 +320,4 @@ try {
 }
 // console.log(crops.users[0].transaction);
 // console.log(crops.userPurchase(1, "npk", 34, 500));
+console.log(crops.cropInfo);
