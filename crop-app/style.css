@@ -97,6 +97,12 @@ button {
   width: 35%;
   margin: 1rem auto 0;
 }
+
+#create-account-password-error,
+#create-account-username-error {
+  width: 100%;
+}
+
 @media (max-width: 820px) {
   .part-1,
   .part-2 {

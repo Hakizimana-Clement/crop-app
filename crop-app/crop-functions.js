@@ -1,6 +1,7 @@
 ////////////////////////////////
 // load saved data
 ////////////////////////////////
+// 1.crop data
 const savedData = () => {
   // save in localstorage
   const cropJson = localStorage.getItem("crops");
@@ -8,6 +9,16 @@ const savedData = () => {
     return JSON.parse(cropJson);
   } else {
     console.log("Not data found");
+    return [];
+  }
+};
+
+// 2.user data
+const userSavingData = () => {
+  const userJson = localStorage.getItem("newUser");
+  if (userJson !== null) {
+    return JSON.parse(userJson);
+  } else {
     return [];
   }
 };
@@ -120,16 +131,8 @@ const renderCrops = (cropArray, filters) => {
 };
 
 ////////////////////////////////////////////////
-//  errors handle
+//  form errors handle
 ////////////////////////////////////////////////
-// const showCropFormErrors = (error) => {
-//   if (error.cropCategories != null ) {
-//     document.querySelector("#crop-name-error").textContent = error.cropName;
-//   } else {
-//     document.querySelector("#crop-name-error").textContent = "";
-//   }
-//   console.log(error);
-// };
 const showCropFormErrors = (error) => {
   if (error.cropName !== null) {
     document.querySelector("#crop-name-error").textContent = error.cropName;
@@ -159,5 +162,18 @@ const showCropFormErrors = (error) => {
       error.postHarvest;
   } else {
     document.querySelector("#crop-name-error").textContent = "";
+  }
+};
+const showCreateFormErrors = (error) => {
+  if (error.username !== null) {
+    document.querySelector("#create-account-username-error").textContent =
+      error.username;
+  } else if (error.password !== null) {
+    document.querySelector("#create-account-password-error").textContent =
+      error.password;
+  } else {
+    document.querySelector("#create-account-username-error").textContent = "";
+
+    document.querySelector("#create-account-password-error").textContent = "";
   }
 };

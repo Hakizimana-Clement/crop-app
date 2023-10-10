@@ -2,6 +2,7 @@ const cropForm = document.querySelector(".crop-form");
 const createAccountForm = document.querySelector(".create-account-form");
 const userUl = document.querySelector(".user-list");
 
+// error variables
 let cropFormError = {
   cropName: null,
   cropCategories: null,
@@ -15,14 +16,23 @@ let cropFormError = {
   harvest: null,
   postHarvest: null,
 };
+
+let createUserAccountError = {
+  username: null,
+  password: null,
+};
 // array of account
 const userAccount = [
   { id: 2, username: "coco", password: 23454323 },
   { id: 1, username: "adam", password: 12345678 },
 ];
 
-// array of crop data
+// 1.array of crop data
 const cropInfo = savedData();
+
+// 2.array of new user data
+const newUser = userSavingData();
+
 // search
 const filters = { searchText: "" };
 
@@ -154,30 +164,46 @@ cropForm.addEventListener("submit", (e) => {
   renderCrops(cropInfo, filters);
 });
 ///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
 // create account
+///////////////////////////////////////////////////////////////////////
 createAccountForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  let isCorrect = false;
   const accountData = {
     id: uuidv4(),
     username: e.target.elements.username.value,
     password: e.target.elements.password.value,
   };
-  if (accountData.password.length <= 8) {
-    //clear input
-    createAccountForm.reset();
-    throw Error(
-      "New password is weak, use strong password that have more 8 character"
-    );
+  // checking error
+  // username
+  if (accountData.username.length < 5) {
+    createUserAccountError.username = "Username should be more than 5 words.";
+    isCorrect = true;
   } else {
-    console.log(
-      `😊 You have successfully create account ${accountData.username}`
-    );
-    // create account
-    userAccount.push(accountData);
-    //clear input
-    createAccountForm.reset();
+    createUserAccountError.username = null;
   }
+
+  // password
+  if (accountData.password.length <= 8) {
+    createUserAccountError.password =
+      "Your password is weak. Use a strong password that has more than 8 characters.";
+    isCorrect = true;
+    accountData.password.value = "";
+  } else {
+    createUserAccountError.password = null;
+    accountData.password.value = "";
+  }
+  showCreateFormErrors(createUserAccountError);
+
+  if (isCorrect) {
+    return;
+  }
+
+  // save in array
+  newUser.push(accountData);
+  // save in localstorage
+  localStorage.setItem("newUser", JSON.stringify(newUser));
+  // clear input
   createAccountForm.reset();
 });
 
