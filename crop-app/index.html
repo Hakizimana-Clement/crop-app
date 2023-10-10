@@ -30,12 +30,14 @@
           <br />
           <br />
           <input type="text" id="crop-name" name="cropName" />
+          <span class="error" id="crop-name-error"></span>
           <br />
           <br />
           <label for="categoreis-by">Categoreis:</label>
           <br />
           <br />
-          <input type="text" id="crop-name" name="cropCategories" />
+          <input type="text" id="categoreis-by" name="cropCategories" />
+          <span class="error" id="crop-category-error"></span>
           <!-- <select id="categoreis-by">
             <option value="">---select---</option>
             <option value="legumes">Legumes</option>
@@ -69,6 +71,7 @@
             rows="4"
           ></textarea>
 
+          <span class="error" id="crop-background-error"></span>
           <br />
           <br />
           <!-- usability -->
@@ -77,10 +80,11 @@
           <br />
           <textarea
             name="usability"
-            id="background"
+            id="usability"
             cols="33"
             rows="4"
           ></textarea>
+          <span class="error" id="crop-usability-error"></span>
 
           <br />
           <br />
@@ -94,24 +98,22 @@
             cols="33"
             rows="4"
           ></textarea>
+          <span class="error" id="crop-requirement-error"></span>
           <br />
           <br />
           <!-- seed bed preparation -->
           <label for="seedBed">Seed bed preparation:</label>
           <br />
           <br />
-          <textarea
-            name="seedBed"
-            id="background"
-            cols="33"
-            rows="4"
-          ></textarea>
+          <textarea name="seedBed" id="seedBed" cols="33" rows="4"></textarea>
+          <span class="error" id="crop-seedBed-error"></span>
           <br />
           <br />
           <label for="sowing">Sowing method:</label>
           <br />
           <br />
-          <textarea name="sowing" id="background" cols="33" rows="4"></textarea>
+          <textarea name="sowing" id="sowing" cols="33" rows="4"></textarea>
+          <span class="error" id="crop-sowing-error"></span>
           <br />
           <br />
           <label for="pestAndDisease">Pest and disease management:</label>
@@ -119,21 +121,18 @@
           <br />
           <textarea
             name="pestAndDisease"
-            id="background"
+            id="pestAndDisease"
             cols="33"
             rows="4"
           ></textarea>
+          <span class="error" id="crop-pestAndDisease-error"></span>
           <br />
           <br />
           <label for="harvest">Harvesting:</label>
           <br />
           <br />
-          <textarea
-            name="harvest"
-            id="background"
-            cols="33"
-            rows="4"
-          ></textarea>
+          <textarea name="harvest" id="harvest" cols="33" rows="4"></textarea>
+          <span class="error" id="crop-harvest-error"></span>
           <br />
           <br />
           <label for="postHarvest">Post harvesting:</label>
@@ -141,11 +140,11 @@
           <br />
           <textarea
             name="postHarvest"
-            id="background"
+            id="postHarvest"
             cols="33"
             rows="4"
           ></textarea>
-
+          <span class="error" id="crop-postHarvest-error"></span>
           <br />
           <br />
           <button>Submit</button>
@@ -154,22 +153,34 @@
     </section>
     <section class="part-2">
       <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem,
-        exercitationem odit necessitatibus, sunt adipisci explicabo quia a autem
-        molestiae facilis aut esse nam nihil dolore rerum dignissimos doloremque
-        temporibus sequi!
+        <h2>User account lists:</h2>
+        <div class="all-user-container">
+          <!-- <ul class="user-list"></ul> -->
+        </div>
       </div>
-      <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem,
-        exercitationem odit necessitatibus, sunt adipisci explicabo quia a autem
-        molestiae facilis aut esse nam nihil dolore rerum dignissimos doloremque
-        temporibus sequi!
+      <div class="account">
+        <h2>Create account</h2>
+        <form class="create-account-form">
+          <label for="username">Username:</label>
+          <br />
+          <br />
+          <input type="text" id="username" name="username" required />
+          <br />
+          <br />
+          <br />
+
+          <label for="password">password:</label>
+          <br />
+          <br />
+          <input type="password" name="password" required />
+          <br />
+          <button class="submit-btn">Create account</button>
+        </form>
       </div>
     </section>
     <!-- js -->
     <script src="uuidv4.js"></script>
     <script src="crop-functions.js"></script>
     <script src="crop-app.js"></script>
-    <!-- <script src="crop-app-testing.js"></script> -->
   </body>
 </html>

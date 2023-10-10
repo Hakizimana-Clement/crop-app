@@ -1,4 +1,3 @@
-// debugger;
 ////////////////////////////////
 // load saved data
 ////////////////////////////////
@@ -23,13 +22,19 @@ const saveData = (cropInfo) => {
 // remove data on page and local storage
 ////////////////////////////////
 const removeData = (id) => {
+  console.log(id);
+
+  // console.log(cropInfo);
   const cropIndex = cropInfo.findIndex((crop) => {
+    // console.log(console.log(crop));
+    console.log(crop.id === id);
     return crop.id === id;
   });
+
+  console.log(cropIndex);
+
   if (cropIndex > -1) {
     cropInfo.splice(cropIndex, 1);
-  } else {
-    console.log("id not found");
   }
 };
 
@@ -89,12 +94,10 @@ const renderDomEl = (crop) => {
   deleteBtn.classList.add("delete-btn");
   deleteBtn.textContent = "delete";
   cropDiv.append(deleteBtn);
-  // debugger;
   // add event for delete
   deleteBtn.addEventListener("click", () => {
-    console.log(crop);
     removeData(crop.id);
-    saveData();
+    saveData(cropInfo);
     renderCrops(cropInfo, filters);
   });
 
@@ -116,23 +119,45 @@ const renderCrops = (cropArray, filters) => {
   });
 };
 
-// data to add on page
-// const dataFromUser = (e) => {
-//   const datas = {
-//     id: uuidv4(),
-//     name: e.target.elements.cropName.value,
-//     category: e.target.elements.cropCategories.value,
-//     cropImg: e.target.elements.cropImg.value,
-//     background: e.target.elements.background.value,
-//     usability: e.target.elements.usability.value,
-//     requirement: e.target.elements.requirement.value,
-//     seedBed: e.target.elements.seedBed.value,
-//     sowing: e.target.elements.sowing.value,
-//     pestAndDisease: e.target.elements.pestAndDisease.value,
-//     harvest: e.target.elements.harvest.value,
-//     postHarvest: e.target.elements.postHarvest.value,
-//   };
-//   return datas;
+////////////////////////////////////////////////
+//  errors handle
+////////////////////////////////////////////////
+// const showCropFormErrors = (error) => {
+//   if (error.cropCategories != null ) {
+//     document.querySelector("#crop-name-error").textContent = error.cropName;
+//   } else {
+//     document.querySelector("#crop-name-error").textContent = "";
+//   }
+//   console.log(error);
 // };
-
-// // dataFromUser;
+const showCropFormErrors = (error) => {
+  if (error.cropName !== null) {
+    document.querySelector("#crop-name-error").textContent = error.cropName;
+  } else if (error.cropCategories !== null) {
+    document.querySelector("#crop-category-error").textContent =
+      error.cropCategories;
+  } else if (error.background !== null) {
+    document.querySelector("#crop-background-error").textContent =
+      error.background;
+  } else if (error.usability !== null) {
+    document.querySelector("#crop-usability-error").textContent =
+      error.usability;
+  } else if (error.requirement !== null) {
+    document.querySelector("#crop-requirement-error").textContent =
+      error.requirement;
+  } else if (error.seedBed !== null) {
+    document.querySelector("#crop-seedBed-error").textContent = error.seedBed;
+  } else if (error.sowing !== null) {
+    document.querySelector("#crop-sowing-error").textContent = error.sowing;
+  } else if (error.pestAndDisease !== null) {
+    document.querySelector("#crop-pestAndDisease-error").textContent =
+      error.pestAndDisease;
+  } else if (error.harvest !== null) {
+    document.querySelector("#crop-harvest-error").textContent = error.harvest;
+  } else if (error.postHarvest !== null) {
+    document.querySelector("#crop-postHarvest-error").textContent =
+      error.postHarvest;
+  } else {
+    document.querySelector("#crop-name-error").textContent = "";
+  }
+};
