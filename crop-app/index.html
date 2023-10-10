@@ -152,7 +152,7 @@
       </div>
     </section>
     <section class="part-2">
-      <div>
+      <div class="users">
         <h2>User account lists:</h2>
         <div class="all-user-container">
           <!-- <ul class="user-list"></ul> -->
@@ -184,6 +184,30 @@
           ></span>
           <br />
           <button class="submit-btn">Create account</button>
+        </form>
+      </div>
+    </section>
+    <section class="login">
+      <div class="account">
+        <h2>Login</h2>
+        <form class="login-form">
+          <label for="login-username">Username:</label>
+          <br />
+          <br />
+          <input type="text" id="login-username" name="username" required />
+          <span class="error" id="login-username-error"></span>
+
+          <br />
+          <br />
+          <br />
+
+          <label for="login-password">password:</label>
+          <br />
+          <br />
+          <input type="password" name="password" required />
+          <span class="error" id="login-error"></span>
+          <br />
+          <button class="submit-btn">login</button>
         </form>
       </div>
     </section>

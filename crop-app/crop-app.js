@@ -1,6 +1,7 @@
 const cropForm = document.querySelector(".crop-form");
 const createAccountForm = document.querySelector(".create-account-form");
 const userUl = document.querySelector(".user-list");
+const loginForm = document.querySelector(".login-form");
 
 // error variables
 let cropFormError = {
@@ -21,11 +22,13 @@ let createUserAccountError = {
   username: null,
   password: null,
 };
-// array of account
-const userAccount = [
-  { id: 2, username: "coco", password: 23454323 },
-  { id: 1, username: "adam", password: 12345678 },
-];
+let loginError = null;
+
+// // array of account
+// const userAccount = [
+//   { id: 2, username: "coco", password: 23454323 },
+//   { id: 1, username: "adam", password: 12345678 },
+// ];
 
 // 1.array of crop data
 const cropInfo = savedData();
@@ -34,7 +37,7 @@ const cropInfo = savedData();
 const newUser = userSavingData();
 
 // search
-const filters = { searchText: "" };
+const filters = { searchText: "", sortBy: "npk" };
 
 // render on page
 renderCrops(cropInfo, filters);
@@ -176,15 +179,15 @@ createAccountForm.addEventListener("submit", (e) => {
   };
   // checking error
   // username
-  if (accountData.username.length < 5) {
-    createUserAccountError.username = "Username should be more than 5 words.";
+  if (accountData.username.length < 3) {
+    createUserAccountError.username = "Username should be more than 2 words.";
     isCorrect = true;
   } else {
     createUserAccountError.username = null;
   }
 
   // password
-  if (accountData.password.length <= 8) {
+  if (accountData.password.length < 8) {
     createUserAccountError.password =
       "Your password is weak. Use a strong password that has more than 8 characters.";
     isCorrect = true;
@@ -198,32 +201,27 @@ createAccountForm.addEventListener("submit", (e) => {
   if (isCorrect) {
     return;
   }
-
   // save in array
   newUser.push(accountData);
   // save in localstorage
   localStorage.setItem("newUser", JSON.stringify(newUser));
+  // re-render on page
+  renderUser(newUser);
   // clear input
   createAccountForm.reset();
 });
 
-const renderUser = (usersArray) => {
-  // const test = users.forEach((user) => {
-  //   // console.log(user);
-  //   // console.log(userAccount);
-  //   return user.username;
-  // });
-  // console.log(usersArray);
-  usersArray.forEach((user) => {
-    // console.log(user);
-    const userContainer = document.createElement("div");
-    // username
-    const paragraphEl = document.createElement("p");
-    paragraphEl.classList.add("listT");
-    paragraphEl.textContent = `Username: ${user.username}`;
-    document.querySelector(".all-user-container").append(paragraphEl);
-    // userUl.append(paragraphEl);
-  });
-};
+renderUser(newUser);
 
-renderUser(userAccount);
+//////////////////////////////////////////////////////////
+// login
+//////////////////////////////////////////////////////////
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const loginData = {
+    username: e.target.elements.username.value,
+    password: e.target.elements.password.value,
+  };
+  // user authentication
+  userAuth(loginData);
+});

@@ -164,6 +164,7 @@ const showCropFormErrors = (error) => {
     document.querySelector("#crop-name-error").textContent = "";
   }
 };
+/////////////////// create new account /////////////////////////////
 const showCreateFormErrors = (error) => {
   if (error.username !== null) {
     document.querySelector("#create-account-username-error").textContent =
@@ -175,5 +176,45 @@ const showCreateFormErrors = (error) => {
     document.querySelector("#create-account-username-error").textContent = "";
 
     document.querySelector("#create-account-password-error").textContent = "";
+  }
+};
+/////////////////// /////////////////////////////
+// render User
+/////////////////// /////////////////////////////
+const renderUser = (usersArray) => {
+  usersArray.forEach((user) => {
+    // container
+    const userContainer = document.createElement("div");
+    userContainer.classList.add("user-container");
+    // user element
+    const usernameEl = document.createElement("p");
+    usernameEl.textContent = `Username: ${user.username}`;
+    // password element
+    const passwordEl = document.createElement("p");
+    passwordEl.textContent = `Password: ${user.password}`;
+    // attach or append on container
+    userContainer.append(usernameEl);
+    userContainer.append(passwordEl);
+    // attach
+    document.querySelector(".all-user-container").append(userContainer);
+  });
+};
+
+// user authentication
+const userAuth = (loginData) => {
+  // debugger;
+  const userFound = newUser.find((user) => {
+    const username = user.username === loginData.username;
+    const password = user.username === loginData.password;
+    return username && password;
+  });
+
+  // console.log(userFound);
+  if (userFound === undefined) {
+    document.querySelector("#login-error").textContent = "user doesn't exist";
+    throw Error("User doesn't exist");
+  } else {
+    // it's redirect user to login page array
+    location.assign(`dashboard.html#${userFound.id}`);
   }
 };

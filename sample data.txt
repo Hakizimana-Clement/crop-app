@@ -40,5 +40,9 @@ harvesting: 'Mechanized harvesting of maize is done with corn-pickers, corn-shel
 postHarvest: 'Many farmers will lay their kernels out in the sun to dry for a few days following shelling. By completely drying the kernels, farmers are less like to lose grains to rot and the carcinogenic toxin alfatoxin, which is produced by fungi, is less likely to form'
 }
 ]
-
+//////////////////////////////////////
+Fertilizer	Price per kg in Kabale (October 2023)	Price per kg (average wholesale in 2016)	Price per kg (subsidized in November 2022)
+NPK	3,100 RWF	1,050 RWF	N/A
+Urea	2,600 RWF	600 RWF	800 RWF
+DAP	3,100 RWF	1,050 RWF	900 RWF
 /////////

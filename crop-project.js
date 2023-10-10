@@ -319,5 +319,5 @@ try {
   console.log(error);
 }
 // console.log(crops.users[0].transaction);
-// console.log(crops.userPurchase(1, "npk", 34, 500));
-console.log(crops.cropInfo);
+console.log(crops.userPurchase(1, "npk", 34, 500));
+// console.log(crops.cropInfo);

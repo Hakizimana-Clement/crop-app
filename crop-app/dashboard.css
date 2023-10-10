@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffebce;
+  /* background-color: #cfb289; */
+  text-align: center;
+  padding: 1.5rem 2rem;
+}
+.container {
+  margin-top: 2rem;
+}
+.user-container {
+  margin-top: 2rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+nav {
+  text-align: right;
+  padding: 0 2rem;
+}
+.btn {
+  /* padding: 1rem; */
+  padding: 9px 10px;
+  background-color: #000;
+  border-radius: 11px;
+  color: white;
+}
+
+table,
+td,
+th {
+  border: 1px solid #333;
+  padding: 8px;
+}
+
+thead,
+tfoot {
+  background-color: #333;
+  color: #fff;
+}
+
+table {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  border-width: 0px;
+}
+
+.purchase,
+.user-logs {
+  border: 1px solid black;
+  padding: 1rem;
+}
+.purchase-data {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.total {
+  font-size: 1.5rem;
+}
+.events {
+  margin-top: 4rem;
+  border: 1px solid black;
+  padding-bottom: 8rem;
+}
+.events h2 {
+  margin: 2rem 0 5rem;
+}
+@media (max-width: 820px) {
+  .user-container {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+}
