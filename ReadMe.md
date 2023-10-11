@@ -1,5 +1,7 @@
 # Crop projects
 
+⚠This project is a learning exercise for me to study the process of development. It is not completed or polished yet, and it has some bugs and errors. However, I will try to fix them as soon as possible and make this project useful for everyone.⚠
+
 This project have these type of crops:
 
 - Legumes (bean,soya,peas,ground nut) and
@@ -10,7 +12,7 @@ This project have these type of crops:
 
 What the user can do with this app:
 
-<!-- 1. To see overview of crop like table of content. -->
+1. To see overview of crop like table of content.
 
 2. Each crop must have summary (name,summary).
 

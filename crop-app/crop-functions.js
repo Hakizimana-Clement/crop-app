@@ -25,10 +25,14 @@ const userSavingData = () => {
 ////////////////////////////////
 // save data
 ////////////////////////////////
+// crio
 const saveData = (cropInfo) => {
   localStorage.setItem("crops", JSON.stringify(cropInfo));
 };
-
+// user
+const userSavedData = (newUser) => {
+  localStorage.setItem("newUser", JSON.stringify(newUser));
+};
 ////////////////////////////////
 // remove data on page and local storage
 ////////////////////////////////
@@ -49,6 +53,16 @@ const removeData = (id) => {
   }
 };
 
+// remove user
+const removeUser = (id) => {
+  const userIndex = newUser.findIndex((user) => {
+    return user.id === id;
+  });
+
+  if (userIndex > -1) {
+    newUser.splice(userIndex, 1);
+  }
+};
 ////////////////////////////////
 // render DOM
 ////////////////////////////////
@@ -182,6 +196,7 @@ const showCreateFormErrors = (error) => {
 // render User
 /////////////////// /////////////////////////////
 const renderUser = (usersArray) => {
+  document.querySelector(".all-user-container").innerHTML = "";
   usersArray.forEach((user) => {
     // container
     const userContainer = document.createElement("div");
@@ -192,9 +207,18 @@ const renderUser = (usersArray) => {
     // password element
     const passwordEl = document.createElement("p");
     passwordEl.textContent = `Password: ${user.password}`;
+    // button element
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "delete";
+    removeBtn.addEventListener("click", () => {
+      removeUser(user.id);
+      userSavedData(newUser);
+      renderUser(newUser);
+    });
     // attach or append on container
     userContainer.append(usernameEl);
     userContainer.append(passwordEl);
+    userContainer.append(removeBtn);
     // attach
     document.querySelector(".all-user-container").append(userContainer);
   });
@@ -202,14 +226,13 @@ const renderUser = (usersArray) => {
 
 // user authentication
 const userAuth = (loginData) => {
-  // debugger;
   const userFound = newUser.find((user) => {
-    const username = user.username === loginData.username;
-    const password = user.username === loginData.password;
-    return username && password;
+    return (
+      user.username === loginData.username &&
+      user.password === loginData.password
+    );
   });
 
-  // console.log(userFound);
   if (userFound === undefined) {
     document.querySelector("#login-error").textContent = "user doesn't exist";
     throw Error("User doesn't exist");

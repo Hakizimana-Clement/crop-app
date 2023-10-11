@@ -1,17 +1,24 @@
 const userId = location.hash.substring(1);
 const username = document.querySelector(".username");
 const password = document.querySelector(".password");
-const price = document.querySelector(".price");
-const totalPrice = document.querySelector(".total");
-const quantity = document.querySelector("#qty");
-const manureType = document.querySelector("#manure-type");
-// unit price
-let unitPrice = 0;
+const linkElement = document.querySelector(".user-edit");
+const manureType = document.querySelector("[data-manure='manure-choose']");
+const qty = document.querySelector("[data-manure='qty']");
+const unitPrice = document.querySelector("[data-manure='unit-price']");
+const total = document.querySelector("[data-manure='total']");
+const logOutBtn = document.querySelector(".btn");
+
+///////////////////////////////////////////////////////////////////////
+// logout
+///////////////////////////////////////////////////////////////////////
+logOutBtn.addEventListener("click", () => {
+  location.assign("index.html");
+});
+///////////////////////////////////////////////////////////////////////
+// user
+///////////////////////////////////////////////////////////////////////
 // get data from local storage
 const users = userSavingData();
-
-// console.log(userId);
-// console.log(users);
 
 const user = users.find((user) => {
   return user.id === userId;
@@ -20,34 +27,32 @@ const user = users.find((user) => {
 username.textContent = user.username;
 password.textContent = user.password;
 
+linkElement.setAttribute("href", `edit.html#${user.id}`);
+
+///////////////////////////////////////////////////////////////////////
 // purchase
-quantity.addEventListener("input", (e) => {
-  const data = e.target.value;
-  unitPrice = 600;
-  totalPrice.innerHTML = `<strong>Total: ${unitPrice * data} rwf </strong>`;
-});
+///////////////////////////////////////////////////////////////////////
+const price = {
+  "manure-npk-17": 800,
+  "manure-npk-20": 900,
+  "manure-urea": 950,
+  "manure-dap": 980,
+};
 
-// manure
-manureType.addEventListener("change", (e) => {
-  if (e.target.value === "npk") {
-    unitPrice = 800;
-    price.textContent = unitPrice;
+const updatePrice = () => {
+  const selectManure = manureType.selectedOptions[0].dataset.manure;
+  const selectedPrice = price[selectManure];
 
-    totalPrice.innerHTML = `<strong>Total: ${unitPrice * 5} rwf </strong>`;
-  } else if (e.target.value === "npk-17-17-17") {
-    unitPrice = 600;
-    price.textContent = unitPrice;
+  // get theinput quality
+  const quantity = qty.value;
 
-    totalPrice.innerHTML = `<strong>Total: ${unitPrice * 5} rwf </strong>`;
-  } else if (e.target.value === "urea") {
-    unitPrice = 650;
-    price.textContent = unitPrice;
-    totalPrice.innerHTML = `<strong>Total: ${unitPrice * 5} rwf </strong>`;
-  } else if (e.target.value === "dap") {
-    unitPrice = 550;
-    price.textCo5tent = unitPrice;
-    totalPrice.innerHTML = `<strong>Total: ${unitPrice * 5} rwf </strong>`;
-  } else {
-    totalPrice.innerHTML = `<strong>Total: 0 rwf</strong>`;
-  }
-});
+  // calculate the total
+  const totalPrice = selectedPrice * quantity;
+
+  unitPrice.textContent = selectedPrice;
+  total.textContent = totalPrice;
+};
+
+manureType.addEventListener("change", updatePrice);
+qty.addEventListener("input", updatePrice);
+updatePrice();

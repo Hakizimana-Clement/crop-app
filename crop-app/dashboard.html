@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+    <link
+      href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAdZVcA9fn5ABFqUgAFTTkAGXNaABBhSwD5/PoAGnhdAAZLNwAXYE4AhZHyABAezwAZc1sA/P79AC16aABFX90AU5eJAC2JcAD9/v4A/v7+ANrq9gD0+PcAipfjACFxWgAjfWoAERnXABllUwATZ1YAEWpWABNmWQARYEkAHnhgABkc8AAVZlEAC1tHAB53WwAaaVEAJoFoAEKXhAAZdWEAGm9ZABleTwB0hssAHnhhABRzXwAUcFcAHnthACBxXAAggWkAGiW/APv9/AAceV8AISnuABkY3ABKdm4ADkg8AEx2bgAiLvkA////APn7+gAedF0AFlxGACV9bQBDf5gAJGlbAPz9/QAodmgA/f39AClBswD+/f0AFWpZACFxZgDN4N0ADWxUAPH39gD6+/sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOjo6Ojo6OjpDOjo6Ojo6Ojo6Ojo6Ojo6Bjo6Ojo6Ojo6Ojo6Ojo6OhQ6Ojo6Ojo6Ojo6Ojo6OhYPKjo6Ojo6Ojo6Ojo6OgogNRkxOjo6Ojo6Ojo6OjoTOTQLRDo6Ojo6Ojo6Ojo6Ojo/Ezo6Ojo6Ojo6Ojo6OjpDR0M6Ojo6Ojo6Ojo6OjpDNkZDOjo6Ojo6Ojo6OhVDIRJBHUgNOjo6Ojo6OiQ4PRg6OhMHIi0+LEo6OjpLKAQTOjoOGyMMPEkAMicaCCUROjo6OjoQHwIcCUNANx4zLjBFOjo6OjoBOzovKRMDBRcrOjo6Ojo6Ojo6JkI6Ojo6Ojo6Ojo6Ojo6OgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      rel="icon"
+      type="image/x-icon"
+    />
+
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
@@ -26,22 +32,56 @@
             <tr>
               <td class="username"></td>
               <td class="password"></td>
-              <td><a href="" class="edit"> change </a></td>
+              <td><a class="user-edit"> change </a></td>
             </tr>
           </table>
         </div>
         <div class="purchase">
           <h2>Purchase manure</h2>
           <br />
-          <div class="purchase-data">
-            <!-- <span><strong>Manure type :</strong> NPK</span> -->
-            <label for="manure-type">Choose a manure:</label>
+
+          <!-- previous data -->
+          <!-- <div class="purchase-data">
+            <label for="manure-type">choose a manure:</label>
             <select id="manure-type">
-              <!-- <option>--- Please choose an option ---</option> -->
-              <option value="npk-17-17-17">NPK (17-17-17)</option>
-              <option value="npk">NPK (255-5-5) and NPK (20-10-10)</option>
-              <option value="urea">Urea</option>
-              <option value="dap">DAP</option>
+              <option value="npk-17-17-17">npk (17-17-17)</option>
+              <option value="npk">npk (255-5-5) and npk (20-10-10)</option>
+              <option value="urea">urea</option>
+              <option value="dap">dap</option>
+            </select>
+
+            <br />
+            <br />
+
+            <label for="qty">quantity (kg):</label>
+            <input
+              type="number"
+              id="qty"
+              name="qty"
+              min="1"
+              max="100"
+              placeholder="1-100kg"
+              value="1"
+            />
+            <br />
+            <br />
+            <p>unit price: <span class="price">600</span>rwf</p>
+            <br />
+            <br />
+            <p class="total"><strong>total: 600 rwf</strong></p>
+          </div> -->
+
+          <div class="purchase-data">
+            <label for="manure-type">Choose a manure:</label>
+            <select id="manure-type" data-manure="manure-choose">
+              <option value="npk-17-17-17" data-manure="manure-npk-17">
+                npk (17-17-17)
+              </option>
+              <option value="npk" data-manure="manure-npk-20">
+                npk (255-5-5) and npk (20-10-10)
+              </option>
+              <option value="urea" data-manure="manure-urea">urea</option>
+              <option value="dap" data-manure="manure-dap">dap</option>
             </select>
 
             <br />
@@ -56,13 +96,19 @@
               max="100"
               placeholder="1-100kg"
               value="1"
+              data-manure="qty"
             />
             <br />
             <br />
-            <p>Unit price: <span class="price">600</span>rwf</p>
+            <p>
+              Unit price:
+              <span class="price" data-manure="unit-price">600</span>rwf
+            </p>
             <br />
             <br />
-            <p class="total"><strong>Total: 600 rwf</strong></p>
+            <p class="total">
+              <strong>Total: <span data-manure="total">600</span> rwf</strong>
+            </p>
           </div>
         </div>
       </div>

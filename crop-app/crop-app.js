@@ -182,6 +182,7 @@ createAccountForm.addEventListener("submit", (e) => {
   if (accountData.username.length < 3) {
     createUserAccountError.username = "Username should be more than 2 words.";
     isCorrect = true;
+    accountData.username.value = "";
   } else {
     createUserAccountError.username = null;
   }
@@ -204,7 +205,7 @@ createAccountForm.addEventListener("submit", (e) => {
   // save in array
   newUser.push(accountData);
   // save in localstorage
-  localStorage.setItem("newUser", JSON.stringify(newUser));
+  userSavedData(newUser);
   // re-render on page
   renderUser(newUser);
   // clear input
@@ -222,6 +223,7 @@ loginForm.addEventListener("submit", (e) => {
     username: e.target.elements.username.value,
     password: e.target.elements.password.value,
   };
+  console.log(loginData);
   // user authentication
   userAuth(loginData);
 });
