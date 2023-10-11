@@ -1,8 +1,6 @@
 # Crop projects
 
-⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ 
-This project is a learning exercise for me to study the process of development. It is not completed or polished yet, and it has some bugs and errors. However, I will try to fix them as soon as possible and make this project useful for everyone.
-⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠ ⚠⚠⚠⚠⚠⚠⚠⚠
+⚠ This project is a learning exercise for me to study the process of development. It is not completed or polished yet, and it has some bugs and errors. However, I will try to fix them as soon as possible and make this project useful for everyone.
 
 This project have these type of crops:
 
